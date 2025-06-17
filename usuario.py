@@ -1,5 +1,3 @@
-from nicegui import ui
-
 class Usuario:
     def __init__(self, id, nombre, email, contraseña,historial):
         self.id = id
