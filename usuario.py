@@ -1,7 +1,8 @@
 from nicegui import ui
-
+from grafo import Lista
 class Usuario:
-    def __init__(self, id, nombre, email, contraseña,historial):
+    def __init__(self, id, nombre, email, contraseña,historial, lista ):
+        self.lista = Lista()
         self.id = id
         self.nombre = nombre
         self.email = email
