@@ -17,7 +17,7 @@ with open(r"util/contents.json", 'r',encoding="utf-8") as archivo:
 
 for item in datos:
     cursor.execute("""
-        INSERT INTO contenido(nombre, categoria, popularidad)
+        INSERT INTO contenidos(nombre, categoria, popularidad)
         VALUES (%s, %s, %s)
     """, (item['nombre'], item['categoria'], item['popularidad']))
 

@@ -8,11 +8,11 @@ conexion = mysql.connector.connect(
     password='',
     database='mi_base_de_datos'
 )
-
+#buffer en cursores para que no se pisen
 cursor = conexion.cursor(buffered=True)
 cursor2 = conexion.cursor(buffered=True)
 
-# Obtener las columnas de la tabla usuarios
+ # Obtener las columnas de la tabla usuarios
 cursor.execute("SELECT * FROM usuarios LIMIT 1")
 columnas = cursor.column_names
 cursor.close()
@@ -21,29 +21,30 @@ cursor.close()
 cursor2.execute("SELECT * FROM usuarios")
 datos = cursor2.fetchall()
 cursor2.close()
+
+for dato in datos:
+    print(dato)
 # Crear un diccionario con las columnas como llaves y lista vacía para la última columna
 diccionario = {columna: [] for columna in columnas}
 ultima_columna = columnas[-1]
 diccionario[ultima_columna] = []
 
-# Llenar el diccionario con los datos
+ # Llenar el diccionario con los datos
 for fila in datos:
-    for i, valor in enumerate(fila):
-        diccionario[columnas[i]].append(valor)
+     for i, valor in enumerate(fila):
+         diccionario[columnas[i]].append(valor)
 
 
 
-# Cerrar la conexión
+# # Cerrar la conexión
 
 usuarios=[]	
 for i in range(len(diccionario['id'])):
-    user = Usuario(
+        user = Usuario(
         id=diccionario['id'][i],
-        nombre=diccionario['nombre'][i],
-        email=diccionario['email'][i],
-        contraseña=diccionario['contraseña'][i],
-        historial=[]
-    )
-    usuarios.append(user)
-for user in usuarios:
-    print(user)
+         nombre=diccionario['nombre'][i],
+         email=diccionario['email'][i],
+         contraseña=diccionario['contraseña'][i],
+         historial=[]
+     )
+        usuarios.append(user)
