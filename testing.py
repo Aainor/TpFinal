@@ -3,7 +3,7 @@ import grafo
 from usuario import Usuario
 import json
 
-with open("data/contents.json", "r", encoding="utf-8") as file:
+with open(r"util/contents.json", "r", encoding="utf-8") as file:
     datos = json.load(file)
 
 
