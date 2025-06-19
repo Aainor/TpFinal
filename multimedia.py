@@ -4,6 +4,6 @@ class Multimedia:
         self._descripcion = descripcion
         self._categoria = categoria
 
-    def reproducir():
-        print ("reproduciendo")
+    def reproducir(self):
+        return f"Reproduciendo {self._nombre}"
         

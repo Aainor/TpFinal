@@ -9,8 +9,10 @@ class Serie(Multimedia):
         return self._nombre
     def reproducir(self):
         h = super().reproducir()
-        f"{h} {self.nombre}" #Y ESTE METODO DE VIRGO MOMO?
+        return f"{h} - Episodios: {self._episodios} - Temporadas: {self._temporadas}" 
+    
 series=[]
+
 def instanciarS(y):
     for x in y:
         content= Serie(
